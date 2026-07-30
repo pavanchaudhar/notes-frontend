@@ -11,23 +11,28 @@ loadNotes();
 
 async function loadNotes() {
 
-    const response = await fetch("/api/notes/", {
+    const response = await fetch("http://127.0.0.1:8000/api/notes/", {
         method: "GET",
         headers: {
             "Authorization": `Bearer ${token}`
         }
     });
 
-    const notes = await response.json();
+    console.log("Status:", response.status);
 
-    console.log(notes);
+    const data = await response.json();
+
+    console.log("Response:", data);
+
+    if (!response.ok) {
+        alert("Error loading notes");
+        return;
+    }
 
     const container = document.getElementById("notesContainer");
-
     container.innerHTML = "";
 
-    notes.forEach(note => {
-
+    data.forEach(note => {
         container.innerHTML += `
             <div>
                 <h3>${note.title}</h3>
@@ -35,7 +40,5 @@ async function loadNotes() {
                 <hr>
             </div>
         `;
-
     });
-
 }
