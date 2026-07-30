@@ -1,0 +1,27 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+    <h1>Notes Dashboard</h1>
+
+    <button id="logoutBtn">Logout</button>
+
+    <hr>
+
+    <div id="notesContainer">
+        Loading notes...
+    </div>
+
+    <script src="{% static 'js/dashboard.js' %}"></script>
+
+</body>
+</html>
