@@ -11,17 +11,46 @@
 </head>
 <body>
 
+    <body>
+
     <h1>Notes Dashboard</h1>
 
     <button id="logoutBtn">Logout</button>
 
     <hr>
 
-    <div id="notesContainer">
-        Loading notes...
-    </div>
+    <h2>Add New Note</h2>
+
+    <input
+        type="text"
+        id="title"
+        placeholder="Enter title"
+    >
+
+    <br><br>
+
+    <textarea
+        id="content"
+        placeholder="Enter content"
+        rows="5"
+        cols="40"
+    ></textarea>
+
+    <br><br>
+
+    <button id="addBtn">
+        Add Note
+    </button>
+
+    <hr>
+
+    <h2>My Notes</h2>
+
+    <div id="notesContainer"></div>
 
     <script src="{% static 'js/dashboard.js' %}"></script>
+
+</body>
 
 </body>
 </html>
