@@ -1,0 +1,41 @@
+{% extends 'frontend/base.html' %}
+{% block content %}
+<h2>Login</h2>
+<form id="loginForm">
+    <div class="mb-3">
+        <label>Username</label>
+        <input type="text" id="username" class="form-control" required>
+    </div>
+    <div class="mb-3">
+        <label>Password</label>
+        <input type="password" id="password" class="form-control" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Login</button>
+    <p class="mt-3">Don't have an account? <a href="/register/">Register</a></p>
+</form>
+<div id="message"></div>
+<script>
+    document.getElementById('loginForm').addEventListener('submit', async function(e) {
+        e.preventDefault();
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+        try {
+            const response = await fetch('http://<backend-ec2-ip>/api/token/', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ username, password })
+            });
+            if (response.ok) {
+                const data = await response.json();
+                localStorage.setItem('access_token', data.access);
+                localStorage.setItem('refresh_token', data.refresh);
+                window.location.href = '/notes/';
+            } else {
+                document.getElementById('message').innerText = 'Invalid credentials';
+            }
+        } catch (error) {
+            document.getElementById('message').innerText = 'Network error';
+        }
+    });
+</script>
+{% endblock %}
