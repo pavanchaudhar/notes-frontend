@@ -27,6 +27,7 @@ async function login() {
 
     localStorage.setItem("access", data.access);
     localStorage.setItem("refresh", data.refresh);
+    localStorage.setItem("username", username);
 
     alert("Redirecting to Dashboard");
 

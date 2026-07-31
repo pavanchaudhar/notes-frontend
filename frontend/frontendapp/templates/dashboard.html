@@ -11,46 +11,42 @@
 </head>
 <body>
 
-    <body>
+ <div class="header">
+    <h1>📝 Notes App</h1>
 
-    <h1>Notes Dashboard</h1>
+    <div class="user-info">
+        <span id="welcomeUser"></span>
 
-    <button id="logoutBtn">Logout</button>
+        <button id="logoutBtn">Logout</button>
+           
+    </div>
+</div>
 
-    <hr>
+<div class="form-card">
 
     <h2>Add New Note</h2>
 
     <input
         type="text"
         id="title"
-        placeholder="Enter title"
-    >
-
-    <br><br>
+        placeholder="Enter Title">
 
     <textarea
         id="content"
-        placeholder="Enter content"
-        rows="5"
-        cols="40"
-    ></textarea>
-
-    <br><br>
+        placeholder="Write your note"></textarea>
 
     <button id="addBtn">
         Add Note
     </button>
 
-    <hr>
+</div>
 
-    <h2>My Notes</h2>
+<h2>My Notes</h2>
 
-    <div id="notesContainer"></div>
+<div id="notesContainer"></div>
 
-    <script src="{% static 'js/dashboard.js' %}"></script>
+<script src="{% static 'js/dashboard.js' %}"></script>
 
-</body>
 
 </body>
 </html>

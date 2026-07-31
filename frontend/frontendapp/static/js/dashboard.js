@@ -193,3 +193,23 @@ async function deleteNote(id) {
     }
 
 }
+const username = localStorage.getItem("username");
+
+const welcomeUser = document.getElementById("welcomeUser");
+
+if (welcomeUser && username) {
+    welcomeUser.innerText = `Welcome, ${username}`;
+}
+
+const logoutBtn = document.getElementById("logoutBtn");
+
+logoutBtn.addEventListener("click", logout);
+
+function logout() {
+
+    alert("Logout clicked");
+
+    localStorage.clear();
+
+    window.location.href = "/";
+}
